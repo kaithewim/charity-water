@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tapdration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="gameContainer">
+    <img id="topBadge" src="charitywater-1.png" alt="charity water" />
+    <h1 id="title">tapdration</h1>
+
+    <div id="counter">
+      Water Collected: <span id="waterCount">0</span>
+    </div>
+
+    <div id="multiplierCounter">
+      Water / sec: <span id="multiplierCount">0</span>
+    </div>
+
+    <div id="crack" role="button" tabindex="0" aria-label="Tap crack to collect water"></div>
+
+    <div id="upgradesMenu" aria-hidden="true">
+      <h2 id="upgradesTitle">upgrades</h2>
+      <button id="buyClickUpgradeButton" class="upgradeOption" type="button"></button>
+      <button id="buyPassiveUpgradeButton" class="upgradeOption" type="button"></button>
+    </div>
+
+    <div id="shopMenu" aria-hidden="true">
+      <h2 id="shopTitle">shop</h2>
+      <button id="buyDarkThemeButton" class="shopOption" type="button"></button>
+      <button id="buyMatrixThemeButton" class="shopOption" type="button"></button>
+      <button id="buyHolyThemeButton" class="shopOption" type="button"></button>
+    </div>
+
+    <div id="endgameModal" aria-hidden="true">
+      <div id="endgameCard">
+        <h2 id="endgameTitle">congradulations</h2>
+        <p id="endgameText">Everything is fully maxed out and unlocked.</p>
+        <div id="endgameActions">
+          <button id="continuePlayingButton" class="actionButton" type="button">Continue Playing</button>
+          <button id="restartGameButton" class="actionButton" type="button">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="devButton" type="button">dev button</button>
+
+    <div id="actionBar">
+      <button id="resetButton" class="actionButton" type="button">Reset</button>
+      <button id="upgradesButton" class="actionButton" type="button">Upgrades</button>
+      <button id="shopButton" class="actionButton" type="button">Shop</button>
+      <button id="donateButton" class="actionButton" type="button">Donate</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
