@@ -293,7 +293,7 @@ shopButton.addEventListener("click", function toggleShopMenu() {
 });
 
 donateButton.addEventListener("click", function goToDonatePage() {
-  window.location.href = "https://www.charitywater.org/donate";
+  window.open("https://www.charitywater.org/donate", "_blank", "noopener,noreferrer");
 });
 
 continuePlayingButton.addEventListener("click", function continuePlaying() {
