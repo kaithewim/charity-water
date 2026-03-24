@@ -28,7 +28,7 @@
     </div>
 
     <div id="shopMenu" aria-hidden="true">
-      <h2 id="shopTitle">shop</h2>
+      <h2 id="shopTitle">themes</h2>
       <button id="buyDarkThemeButton" class="shopOption" type="button"></button>
       <button id="buyMatrixThemeButton" class="shopOption" type="button"></button>
       <button id="buyHolyThemeButton" class="shopOption" type="button"></button>
@@ -45,12 +45,52 @@
       </div>
     </div>
 
-    <button id="devButton" type="button">dev button</button>
+    <div id="difficultyModal" aria-hidden="true">
+      <div id="difficultyCard">
+        <h2 id="difficultyTitle">choose difficulty</h2>
+        <p id="difficultyText">Select a mode to set all themes and upgrade costs.</p>
+        <div id="difficultyActions">
+          <button id="difficultyEasyButton" class="difficultyButton" type="button">Easy (25% cheaper)</button>
+          <button id="difficultyNormalButton" class="difficultyButton" type="button">Normal (standard prices)</button>
+          <button id="difficultyHardButton" class="difficultyButton" type="button">Hard (25% more expensive)</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="restartConfirmModal" aria-hidden="true">
+      <div id="restartConfirmCard">
+        <h2 id="restartConfirmTitle">restart game?</h2>
+        <p id="restartConfirmText">This will reset your current progress. Are you sure you want to restart?</p>
+        <div id="restartConfirmActions">
+          <button id="restartCancelButton" class="actionButton" type="button">Cancel</button>
+          <button id="restartConfirmButton" class="actionButton" type="button">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="dropletTutorialModal" aria-hidden="true">
+      <div id="dropletTutorialCard">
+        <h2 id="dropletTutorialTitle">bonus water droplet!</h2>
+        <p id="dropletTutorialText">Click the floating droplet to collect bonus water! It will disappear if you don't grab it in time.</p>
+        <button id="dropletTutorialButton" class="tutorialButton" type="button">Got It</button>
+      </div>
+    </div>
+
+    <div id="rockTutorialModal" aria-hidden="true">
+      <div id="rockTutorialCard">
+        <h2 id="rockTutorialTitle">rock obstacle!</h2>
+        <p id="rockTutorialText">A rock has blocked your tap! Click the rock until the number reaches 0 to clear it. You can't tap the crack while it's blocking.</p>
+        <button id="rockTutorialButton" class="tutorialButton" type="button">Got It</button>
+      </div>
+    </div>
+
+    <button id="devButton" type="button">DEV +250</button>
+    <button id="muteButton" type="button" aria-pressed="false">SFX ON</button>
 
     <div id="actionBar">
-      <button id="resetButton" class="actionButton" type="button">Reset</button>
+      <button id="resetButton" class="actionButton" type="button">Restart</button>
       <button id="upgradesButton" class="actionButton" type="button">Upgrades</button>
-      <button id="shopButton" class="actionButton" type="button">Shop</button>
+      <button id="shopButton" class="actionButton" type="button">Themes</button>
       <button id="donateButton" class="actionButton" type="button">Donate</button>
     </div>
   </div>

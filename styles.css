@@ -1,12 +1,40 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src:
+    local("Proxima Nova"),
+    local("ProximaNova-Regular"),
+    local("Proxima Nova Regular"),
+    local("proxima-nova");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src:
+    local("Proxima Nova Bold"),
+    local("ProximaNova-Bold"),
+    local("proxima-nova-bold");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --wall-light: #a88f72;
-  --wall-dark: #5f4833;
-  --ink: #23190f;
+  --wall-light: #2a2d34;
+  --wall-dark: #0d0f13;
+  --ink: #f3f6fb;
   --water: #3ea4db;
   --water-glow: #9ce2ff;
-  --panel: #ccb291;
-  --bevel-light: #f2dec4;
-  --bevel-dark: #7d5d3f;
+  --panel: #1d2128;
+  --bevel-light: #ffc907;
+  --bevel-dark: #a98700;
+  --cw-yellow: #ffc907;
+  --cw-yellow-deep: #d2a800;
+  --cw-panel-top: #2b3038;
+  --cw-panel-bottom: #15191f;
+  --ui-font: "Proxima Nova", "proxima-nova", "Avenir Next", "Segoe UI", sans-serif;
 }
 
 * {
@@ -18,12 +46,12 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  font-family: "Verdana", "Geneva", sans-serif;
+  font-family: var(--ui-font);
   background:
-    repeating-linear-gradient(0deg, rgba(43, 30, 19, 0.12) 0 2px, transparent 2px 6px),
-    repeating-linear-gradient(90deg, rgba(255, 238, 204, 0.05) 0 1px, transparent 1px 7px),
-    radial-gradient(circle at 16% 20%, rgba(255, 242, 224, 0.14), transparent 45%),
-    radial-gradient(circle at 84% 82%, rgba(0, 0, 0, 0.22), transparent 48%),
+    repeating-linear-gradient(0deg, rgba(255, 201, 7, 0.06) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 7px),
+    radial-gradient(circle at 16% 20%, rgba(255, 201, 7, 0.12), transparent 45%),
+    radial-gradient(circle at 84% 82%, rgba(0, 0, 0, 0.34), transparent 48%),
     linear-gradient(180deg, var(--wall-light), var(--wall-dark));
   color: var(--ink);
   overflow: hidden;
@@ -101,20 +129,20 @@ body::after {
 
 #title {
   position: fixed;
-  top: 1rem;
+  top: 0.7rem;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
-  font-family: "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-family: var(--ui-font);
+  font-size: clamp(1.87rem, 5.1vw, 3.23rem);
   text-transform: lowercase;
   padding: 0.45rem 1.5rem 0.6rem;
   border-radius: 12px;
-  background: linear-gradient(180deg, rgba(48, 34, 24, 0.72), rgba(28, 18, 11, 0.76));
-  border: 2px ridge rgba(244, 224, 194, 0.4);
+  background: linear-gradient(180deg, rgba(39, 43, 50, 0.92), rgba(20, 24, 30, 0.95));
+  border: 2px ridge rgba(255, 201, 7, 0.8);
   box-shadow: 0 10px 22px rgba(10, 8, 6, 0.34);
-  color: #f8ebd6;
-  text-shadow: 1px 1px 0 #5d4128, -1px -1px 0 rgba(255, 230, 192, 0.22);
+  color: #ffd54a;
+  text-shadow: 0 0 8px rgba(255, 201, 7, 0.28);
   letter-spacing: 0.07em;
   z-index: 5;
 }
@@ -137,13 +165,14 @@ body::after {
   top: 1.25rem;
   left: 1.25rem;
   margin: 0;
-  font-family: "Tahoma", "Verdana", sans-serif;
+  font-family: var(--ui-font);
   font-size: clamp(1.1rem, 2vw, 1.55rem);
   font-weight: 700;
   padding: 0.6rem 0.95rem;
   border-radius: 4px;
-  background: linear-gradient(180deg, var(--bevel-light), #d7be9f);
-  border: 2px outset #dec5a8;
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
+  border: 2px outset var(--bevel-light);
+  color: #f3f6fb;
   box-shadow: 0 4px 10px rgba(24, 19, 13, 0.24);
 }
 
@@ -152,13 +181,14 @@ body::after {
   top: 1.25rem;
   right: 1.25rem;
   margin: 0;
-  font-family: "Tahoma", "Verdana", sans-serif;
+  font-family: var(--ui-font);
   font-size: clamp(1.1rem, 2vw, 1.55rem);
   font-weight: 700;
   padding: 0.6rem 0.95rem;
   border-radius: 4px;
-  background: linear-gradient(180deg, var(--bevel-light), #d7be9f);
-  border: 2px outset #dec5a8;
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
+  border: 2px outset var(--bevel-light);
+  color: #f3f6fb;
   box-shadow: 0 4px 10px rgba(24, 19, 13, 0.24);
 }
 
@@ -258,7 +288,7 @@ body::after {
   padding: 0.85rem;
   border: 2px outset var(--bevel-light);
   border-radius: 12px;
-  background: linear-gradient(180deg, #8a6a4c, #5b4230);
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
   box-shadow: 0 10px 20px rgba(12, 8, 5, 0.34);
   display: none;
   z-index: 7;
@@ -277,7 +307,7 @@ body::after {
   padding: 0.85rem;
   border: 2px outset var(--bevel-light);
   border-radius: 12px;
-  background: linear-gradient(180deg, #8a6a4c, #5b4230);
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
   box-shadow: 0 10px 20px rgba(12, 8, 5, 0.34);
   display: none;
   z-index: 7;
@@ -292,29 +322,33 @@ body::after {
   margin: 0;
   font-size: 1.2rem;
   text-transform: lowercase;
-  color: #f8ebd6;
-  text-shadow: 1px 1px 0 #4f3823;
+  color: #ffd54a;
+  text-shadow: 0 0 8px rgba(255, 201, 7, 0.25);
 }
 
 #shopTitle {
   margin: 0;
   font-size: 1.2rem;
   text-transform: lowercase;
-  color: #f8ebd6;
-  text-shadow: 1px 1px 0 #4f3823;
+  color: #ffd54a;
+  text-shadow: 0 0 8px rgba(255, 201, 7, 0.25);
 }
 
 .upgradeOption {
   width: 100%;
   border: 2px outset var(--bevel-light);
   border-radius: 10px;
-  background: linear-gradient(180deg, #7b5d42, #533c2b);
-  color: #f9ead2;
-  font-family: "Tahoma", "Verdana", sans-serif;
+  background: linear-gradient(180deg, #343942, #1a1f26);
+  color: #ffd54a;
+  font-family: var(--ui-font);
   font-size: 1.08rem;
   font-weight: 700;
   text-align: left;
   padding: 0.7rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
   cursor: pointer;
 }
 
@@ -327,14 +361,27 @@ body::after {
   width: 100%;
   border: 2px outset var(--bevel-light);
   border-radius: 10px;
-  background: linear-gradient(180deg, #7b5d42, #533c2b);
-  color: #f9ead2;
-  font-family: "Tahoma", "Verdana", sans-serif;
+  background: linear-gradient(180deg, #343942, #1a1f26);
+  color: #ffd54a;
+  font-family: var(--ui-font);
   font-size: 1.08rem;
   font-weight: 700;
   text-align: left;
   padding: 0.7rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
   cursor: pointer;
+}
+
+.shopLabel {
+  text-transform: lowercase;
+}
+
+.shopValue {
+  margin-left: auto;
+  color: #ffd54a;
 }
 
 .shopOption:disabled {
@@ -357,7 +404,7 @@ body::after {
 
 #endgameCard {
   width: min(540px, calc(100vw - 2rem));
-  background: linear-gradient(180deg, #8a6a4c, #5b4230);
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
   border: 2px outset var(--bevel-light);
   border-radius: 14px;
   box-shadow: 0 14px 30px rgba(7, 5, 3, 0.44);
@@ -367,14 +414,14 @@ body::after {
 
 #endgameTitle {
   margin: 0;
-  color: #f8ebd6;
+  color: #ffd54a;
   text-transform: lowercase;
   letter-spacing: 0.04em;
 }
 
 #endgameText {
   margin: 0.6rem 0 0;
-  color: #f3e1c7;
+  color: #eef2fa;
   font-weight: 700;
 }
 
@@ -389,20 +436,237 @@ body::after {
   min-height: 62px;
 }
 
+#difficultyModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(8, 7, 5, 0.7);
+  z-index: 14;
+}
+
+#difficultyModal.open {
+  display: grid;
+}
+
+#difficultyCard {
+  width: min(560px, calc(100vw - 2rem));
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
+  border: 2px outset var(--bevel-light);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(7, 5, 3, 0.44);
+  padding: 1rem;
+  text-align: center;
+}
+
+#restartConfirmModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(8, 7, 5, 0.7);
+  z-index: 14;
+}
+
+#restartConfirmModal.open {
+  display: grid;
+}
+
+#restartConfirmCard {
+  width: min(560px, calc(100vw - 2rem));
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
+  border: 2px outset var(--bevel-light);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(7, 5, 3, 0.44);
+  padding: 1rem;
+  text-align: center;
+}
+
+#restartConfirmTitle {
+  margin: 0;
+  color: #ffd54a;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+#restartConfirmText {
+  margin: 0.6rem 0 0;
+  color: #eef2fa;
+  font-weight: 700;
+}
+
+#restartConfirmActions {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+#restartConfirmActions .actionButton {
+  min-height: 62px;
+}
+
+#difficultyTitle {
+  margin: 0;
+  color: #ffd54a;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+#difficultyText {
+  margin: 0.6rem 0 0;
+  color: #eef2fa;
+  font-weight: 700;
+}
+
+#difficultyActions {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.difficultyButton {
+  width: 100%;
+  min-height: 62px;
+  border: 2px outset var(--bevel-light);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #343942, #1a1f26);
+  color: #ffd54a;
+  padding: 0.85rem 1rem;
+  font-family: var(--ui-font);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(15, 10, 6, 0.28);
+  transition: transform 100ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.difficultyButton:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 10px 20px rgba(15, 10, 6, 0.34);
+}
+
+.difficultyButton:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+#dropletTutorialModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(8, 7, 5, 0.7);
+  z-index: 15;
+}
+
+#dropletTutorialModal.open {
+  display: grid;
+}
+
+#dropletTutorialCard {
+  width: min(480px, calc(100vw - 2rem));
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
+  border: 2px outset var(--bevel-light);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(7, 5, 3, 0.44);
+  padding: 1.2rem;
+  text-align: center;
+}
+
+#dropletTutorialTitle {
+  margin: 0;
+  color: #ffd54a;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+#dropletTutorialText {
+  margin: 0.6rem 0 0;
+  color: #eef2fa;
+  font-weight: 700;
+}
+
+#rockTutorialModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(8, 7, 5, 0.7);
+  z-index: 15;
+}
+
+#rockTutorialModal.open {
+  display: grid;
+}
+
+#rockTutorialCard {
+  width: min(480px, calc(100vw - 2rem));
+  background: linear-gradient(180deg, var(--cw-panel-top), var(--cw-panel-bottom));
+  border: 2px outset var(--bevel-light);
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(7, 5, 3, 0.44);
+  padding: 1.2rem;
+  text-align: center;
+}
+
+#rockTutorialTitle {
+  margin: 0;
+  color: #ffd54a;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+
+#rockTutorialText {
+  margin: 0.6rem 0 0;
+  color: #eef2fa;
+  font-weight: 700;
+}
+
+.tutorialButton {
+  margin-top: 0.95rem;
+  width: 100%;
+  min-height: 50px;
+  border: 2px outset var(--bevel-light);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #343942, #1a1f26);
+  color: #ffd54a;
+  padding: 0.75rem 1rem;
+  font-family: var(--ui-font);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(15, 10, 6, 0.28);
+  transition: transform 100ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.tutorialButton:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 10px 20px rgba(15, 10, 6, 0.34);
+}
+
+.tutorialButton:active {
+  transform: translateY(1px) scale(0.99);
+}
+
 #devButton {
   position: fixed;
-  top: 0.35rem;
-  right: 0.45rem;
+  right: 1rem;
+  bottom: 8.6rem;
   border: 1px outset var(--bevel-light);
   border-radius: 8px;
-  background: linear-gradient(180deg, #7e6146, #573f2c);
-  color: #f5e6cf;
-  font-family: "Tahoma", "Verdana", sans-serif;
+  background: linear-gradient(180deg, #343942, #1a1f26);
+  color: #ffd54a;
+  font-family: var(--ui-font);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  text-transform: lowercase;
-  padding: 0.2rem 0.42rem;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
   min-height: 22px;
   cursor: pointer;
   z-index: 13;
@@ -414,6 +678,34 @@ body::after {
 }
 
 #devButton:active {
+  transform: scale(0.98);
+}
+
+#muteButton {
+  position: fixed;
+  right: 1rem;
+  bottom: 6.9rem;
+  border: 1px outset var(--bevel-light);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #343942, #1a1f26);
+  color: #ffd54a;
+  font-family: var(--ui-font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  min-height: 22px;
+  cursor: pointer;
+  z-index: 13;
+  box-shadow: 0 3px 8px rgba(12, 8, 5, 0.28);
+}
+
+#muteButton:hover {
+  filter: brightness(1.06);
+}
+
+#muteButton:active {
   transform: scale(0.98);
 }
 
@@ -439,11 +731,47 @@ body.theme-dark .actionButton,
 body.theme-dark #upgradesMenu,
 body.theme-dark #shopMenu,
 body.theme-dark #endgameCard,
+body.theme-dark #restartConfirmCard,
 body.theme-dark .upgradeOption,
 body.theme-dark .shopOption {
   background: linear-gradient(180deg, #515a68, #2b323c);
   color: #edf2ff;
   border-color: #79889f;
+}
+
+body.theme-dark #resetButton,
+body.theme-dark #restartCancelButton,
+body.theme-dark #restartGameButton,
+body.theme-dark #restartConfirmButton {
+  background: linear-gradient(180deg, #515a68, #2b323c);
+  color: #edf2ff;
+  border-color: #79889f;
+}
+
+body.theme-dark #muteButton {
+  background: linear-gradient(180deg, #515a68, #2b323c);
+  color: #edf2ff;
+  border-color: #79889f;
+}
+
+body.theme-dark #devButton {
+  background: linear-gradient(180deg, #515a68, #2b323c);
+  color: #edf2ff;
+  border-color: #79889f;
+}
+
+body.theme-dark #upgradesTitle,
+body.theme-dark #shopTitle,
+body.theme-dark #endgameTitle,
+body.theme-dark #endgameText,
+body.theme-dark #restartConfirmTitle,
+body.theme-dark #restartConfirmText {
+  color: #edf2ff;
+  text-shadow: none;
+}
+
+body.theme-dark .shopValue {
+  color: #edf2ff;
 }
 
 body.theme-matrix {
@@ -475,11 +803,47 @@ body.theme-matrix .actionButton,
 body.theme-matrix #upgradesMenu,
 body.theme-matrix #shopMenu,
 body.theme-matrix #endgameCard,
+body.theme-matrix #restartConfirmCard,
 body.theme-matrix .upgradeOption,
 body.theme-matrix .shopOption {
   background: linear-gradient(180deg, #083f14, #021908);
   color: #a6ff88;
   border-color: #4fda60;
+}
+
+body.theme-matrix #resetButton,
+body.theme-matrix #restartCancelButton,
+body.theme-matrix #restartGameButton,
+body.theme-matrix #restartConfirmButton {
+  background: linear-gradient(180deg, #083f14, #021908);
+  color: #a6ff88;
+  border-color: #4fda60;
+}
+
+body.theme-matrix #muteButton {
+  background: linear-gradient(180deg, #083f14, #021908);
+  color: #a6ff88;
+  border-color: #4fda60;
+}
+
+body.theme-matrix #devButton {
+  background: linear-gradient(180deg, #083f14, #021908);
+  color: #a6ff88;
+  border-color: #4fda60;
+}
+
+body.theme-matrix #upgradesTitle,
+body.theme-matrix #shopTitle,
+body.theme-matrix #endgameTitle,
+body.theme-matrix #endgameText,
+body.theme-matrix #restartConfirmTitle,
+body.theme-matrix #restartConfirmText {
+  color: #a6ff88;
+  text-shadow: 0 0 8px rgba(89, 255, 109, 0.55);
+}
+
+body.theme-matrix .shopValue {
+  color: #a6ff88;
 }
 
 body.theme-holy {
@@ -514,11 +878,47 @@ body.theme-holy .actionButton,
 body.theme-holy #upgradesMenu,
 body.theme-holy #shopMenu,
 body.theme-holy #endgameCard,
+body.theme-holy #restartConfirmCard,
 body.theme-holy .upgradeOption,
 body.theme-holy .shopOption {
   background: linear-gradient(180deg, #e4f5ff, #beddff);
   color: #185686;
   border-color: #88c9f7;
+}
+
+body.theme-holy #resetButton,
+body.theme-holy #restartCancelButton,
+body.theme-holy #restartGameButton,
+body.theme-holy #restartConfirmButton {
+  background: linear-gradient(180deg, #e4f5ff, #beddff);
+  color: #185686;
+  border-color: #88c9f7;
+}
+
+body.theme-holy #muteButton {
+  background: linear-gradient(180deg, #e4f5ff, #beddff);
+  color: #185686;
+  border-color: #88c9f7;
+}
+
+body.theme-holy #devButton {
+  background: linear-gradient(180deg, #e4f5ff, #beddff);
+  color: #185686;
+  border-color: #88c9f7;
+}
+
+body.theme-holy #upgradesTitle,
+body.theme-holy #shopTitle,
+body.theme-holy #endgameTitle,
+body.theme-holy #endgameText,
+body.theme-holy #restartConfirmTitle,
+body.theme-holy #restartConfirmText {
+  color: #185686;
+  text-shadow: none;
+}
+
+body.theme-holy .shopValue {
+  color: #185686;
 }
 
 #actionBar {
@@ -537,10 +937,10 @@ body.theme-holy .shopOption {
   min-height: 84px;
   border: 2px outset var(--bevel-light);
   border-radius: 18px;
-  background: linear-gradient(180deg, #7e6146, #573f2c);
-  color: #f5e6cf;
+  background: linear-gradient(180deg, #343942, #1a1f26);
+  color: #ffd54a;
   padding: 0.9rem 1rem;
-  font-family: "Tahoma", "Verdana", sans-serif;
+  font-family: var(--ui-font);
   font-size: 1.22rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -573,6 +973,56 @@ body.theme-holy .shopOption {
   animation: floatUp 650ms ease-out forwards;
 }
 
+.bonusDroplet {
+  position: absolute;
+  width: 28px;
+  height: 36px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(195, 240, 255, 0.95);
+  border-radius: 50% 50% 58% 58%;
+  background:
+    radial-gradient(circle at 35% 30%, #e9faff 0 26%, #7ed1ff 55%, #2d8fc4 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 56%);
+  box-shadow:
+    0 0 10px rgba(115, 207, 255, 0.65),
+    inset 0 -3px 6px rgba(24, 112, 158, 0.5);
+  cursor: pointer;
+  z-index: 10;
+  animation: dropletBob 900ms ease-in-out infinite alternate;
+}
+
+.bonusDroplet.expiring {
+  animation: dropletPop 240ms ease-out forwards;
+}
+
+.rockObstacle {
+  position: absolute;
+  width: 234px;
+  height: 234px;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(14, 16, 20, 0.95);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 27% 24%, #6f7683 0 14%, #343a45 44%, #151922 78%, #090c12 100%),
+    radial-gradient(circle at 70% 72%, rgba(255, 255, 255, 0.06) 0 10%, rgba(0, 0, 0, 0.28) 48%, transparent 74%),
+    repeating-linear-gradient(38deg, rgba(255, 255, 255, 0.09) 0 2px, rgba(0, 0, 0, 0.2) 2px 6px);
+  color: #f2f6fd;
+  font-family: var(--ui-font);
+  font-size: 4.8rem;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.92);
+  box-shadow:
+    0 10px 22px rgba(4, 5, 8, 0.62),
+    inset 0 2px 9px rgba(255, 255, 255, 0.11),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  z-index: 11;
+}
+
+.rockObstacle:active {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
 @keyframes floatUp {
   0% {
     opacity: 1;
@@ -581,6 +1031,26 @@ body.theme-holy .shopOption {
   100% {
     opacity: 0;
     transform: translate(-50%, -36px);
+  }
+}
+
+@keyframes dropletBob {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(-6px);
+  }
+}
+
+@keyframes dropletPop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35);
   }
 }
 
